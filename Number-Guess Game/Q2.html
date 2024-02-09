@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="gambling.css">
+</head>
+<body>
+    <h1>Number Game</h1>
+    <div>
+    <input id="number" type="text" size="16" />
+    <button onclick="makeguess()" id="makeguess">Make Guess</button>
+    <span id="result"></span>
+    </div>
+    <p>History:</p>
+    <ul id="guesses"></ul>
+
+    <script>
+        console.log(Math.floor(Math.random()*100))
+        let answer = Math.floor(Math.random()*100);
+        function makeguess(){
+            var number = document.getElementById('number').value
+            var li = document.createElement('li');
+            li.innerHTML = number;
+            document.getElementById('guesses').appendChild(li);
+            if(number>answer){
+                document.getElementById('result').innerHTML= 'Too Big';
+                let big=document.querySelector("#guesses");
+                big.classList.add("big");
+            }else if(number<answer){
+                document.getElementById('result').innerHTML= 'Too small'; 
+                let small=document.querySelector("#guesses");
+                small.classList.add("small");
+            }else if(number==answer){
+                document.getElementById('result').innerHTML= 'Too small';
+
+            }
+
+
+        }
+       
+        
+    </script>
+</body>
+</html>
